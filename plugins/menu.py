@@ -12,11 +12,11 @@ async def _():
 
 @b.handle()
 async def _():
-    await b.finish(f"————账号功能————\n1.账号登录\n2.账号注册\n3.获取验证码\n4.获取头像\n5.上传头像+图片\n—————————————\n{await yiyan.get_yiyan()}")
+    await b.finish(f"————账号功能————\n1.账号登录\n2.账号注册\n3.获取验证码\n4.获取头像\n5.上传头像+图片\n6.个人资料+名字\n7.修改资料\n—————————————\n{await yiyan.get_yiyan()}")
 
 @c.handle()
 async def _():
-    await c.finish(f"————功能操作————\n1.随机图片+名字+类型\n—————————————\n{await yiyan.get_yiyan()}")
+    await c.finish(f"————功能操作————\n1.随机图片+名字+类型\n2.图片下载 uid/id xx\n—————————————\n{await yiyan.get_yiyan()}")
 
 @d.handle()
 async def _():
