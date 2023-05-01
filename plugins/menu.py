@@ -5,10 +5,11 @@ a = on_fullmatch("兽云菜单")
 b = on_fullmatch("账号功能")
 c = on_fullmatch("功能操作")
 d = on_fullmatch("令牌功能")
+e = on_fullmatch("系统设置")
 
 @a.handle()
 async def _():
-    await a.finish(f"————兽云菜单————\n1.账号功能\n2.功能操作\n3.令牌操作\n—————————————\n{await yiyan.get_yiyan()}")
+    await a.finish(f"————兽云菜单————\n1.账号功能\n2.功能操作\n3.令牌操作\n4.系统设置\n—————————————\n{await yiyan.get_yiyan()}")
 
 @b.handle()
 async def _():
@@ -21,3 +22,7 @@ async def _():
 @d.handle()
 async def _():
     await d.finish(f"————令牌功能————\n1.获取登录令牌\n2.修改登录令牌\n3.启用令牌\n4.停用令牌\n5.令牌列表\n—————————————\n{await yiyan.get_yiyan()}")
+
+@e.handle()
+async def _():
+    await e.finish(f"————系统设置————\n1.群[开/关] [群号]\n2.修改心跳包[秒数]\n—————————————\n{await yiyan.get_yiyan()}")
