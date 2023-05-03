@@ -3,10 +3,10 @@ from nonebot import on_command
 from nonebot.params import CommandArg
 from nonebot.adapters.onebot.v11 import Message,MessageSegment
 from nonebot.log import logger
-from . import config
+from . import config,group_1
 import httpx
 
-a = on_command("随机图片")
+a = on_command("随机图片",rule=group_1.group_check)
 
 @a.handle()
 async def _(b: Message = CommandArg()):

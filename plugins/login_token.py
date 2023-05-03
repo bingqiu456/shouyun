@@ -2,11 +2,11 @@
 from nonebot import on_fullmatch
 from nonebot.permission import SUPERUSER
 from nonebot.log import logger
-from . import config
+from . import config,group_1
 import httpx
 
-a = on_fullmatch("获取登录令牌",permission=SUPERUSER)
-b = on_fullmatch("修改登录令牌",permission=SUPERUSER)
+a = on_fullmatch("获取登录令牌",permission=SUPERUSER,rule=group_1.group_check)
+b = on_fullmatch("修改登录令牌",permission=SUPERUSER,rule=group_1.group_check)
 
 async def login_t(url):
     b = httpx.get(url,cookies=config.cookies_login)

@@ -19,10 +19,11 @@ b = on_command("群关")
 async def _(event:GroupMessageEvent,v: Message = CommandArg()):
     try: group = int(str(v).strip())
     except: group = event.group_id
-    if await turn_group(group): await b.finish(f"关闭本群{group}成功")
+    if await off_group(group): await b.finish(f"关闭本群{group}成功")
     else: await b.finish(f"本群已经关闭了{group}")
 
-
+async def group_check(event: GroupMessageEvent):
+    return event.group_id in config.group_tf
 
 async def turn_group(id):
     if id in config.group_tf:

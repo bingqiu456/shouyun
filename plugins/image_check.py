@@ -1,10 +1,10 @@
 ## 图片验证码
 from nonebot import on_fullmatch
 from nonebot.adapters.onebot.v11 import MessageSegment
-from . import config
+from . import config,group_1
 import httpx
 
-a = on_fullmatch("获取图片验证码")
+a = on_fullmatch("获取图片验证码",rule=group_1.group_check)
 
 @a.handle()
 async def _():
@@ -13,6 +13,5 @@ async def _():
 
 async def get_image():
     # 获取图片的验证码
-    a = httpx.get("https://cloud.foxtail.cn/api/check")
-    config.image_check["PHPSESSID"] = a.cookies["PHPSESSID"]
+    a = httpx.get("https://cloud.foxtail.cn/api/check",cookies=config.cookies_login)
     return a.content

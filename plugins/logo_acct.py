@@ -3,11 +3,12 @@ from nonebot import on_fullmatch,on_command
 from nonebot.adapters.onebot.v11 import MessageSegment,Message
 from nonebot.params import CommandArg
 from nonebot.log import logger
-from . import config
+from nonebot.permission import SUPERUSER
+from . import config,group_1
 import httpx
 
 a = on_fullmatch("获取头像")
-b = on_command("上传头像")
+b = on_command("上传头像",permission=SUPERUSER,rule=group_1.group_check)
 
 @a.handle()
 async def _():

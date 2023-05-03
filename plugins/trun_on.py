@@ -1,7 +1,7 @@
-from nonebot.log import logger
+﻿from nonebot.log import logger
 import httpx
 
-verison = "0.4" # 版本信息
+verison = "0.8" # 版本信息
 mirr = "cdn.bingyue.top" # 更新源
 # 另外的更新源 blog.bingyue.top
 

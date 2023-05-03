@@ -1,13 +1,13 @@
 ## 账号登录
 from nonebot import on_fullmatch
-from . import config,image_check
+from . import config,image_check,group_1
 from nonebot.adapters.onebot.v11 import MessageSegment
 from nonebot.permission import SUPERUSER
 from nonebot.log import logger
 from nonebot.params import ArgPlainText
 import httpx
 
-a = on_fullmatch("账号登录",permission=SUPERUSER)
+a = on_fullmatch("账号登录",permission=SUPERUSER,rule=group_1.group_check)
 
 @a.handle()
 async def _():
