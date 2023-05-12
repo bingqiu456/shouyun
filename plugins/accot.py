@@ -4,13 +4,33 @@ from nonebot.adapters.onebot.v11 import GroupMessageEvent,Message,MessageSegment
 from nonebot.params import ArgPlainText,CommandArg
 from nonebot.permission import SUPERUSER
 from nonebot.log import logger
-from . import config,image_check,group_1
+from . import config,image_check,group_1,admin,login
 import httpx
 
 acc = on_fullmatch("账号注册",rule=group_1.group_check)
 info = on_command("个人资料",rule=group_1.group_check)
 xg_info = on_command("修改资料",permission=SUPERUSER,rule=group_1.group_check)
+#qieh = on_command("切换账号",permission=SUPERUSER,rule=group_1.group_check)
 
+#@qieh.handle()
+#async def _():
+#    await qieh.send("请选择要切换的账号")
+#    if not admin.account_s: await qieh.finish("无多账号！")
+#    else:
+#        d,c = "如下账号",1
+#        for i in admin.account_s:
+#            d+=f"\n{c}.{i}"
+#            c+=1
+#       await qieh.send(d+"\n请发送你要切换的账号序号")
+    
+# @qieh.got("key")
+# async def _(key = ArgPlainText("key")):
+#    c = int(key)
+#    j = 1
+#    for i in admin.account_s:
+#        if j == c:
+#            login.login
+            
 global tyu
 tyu = []
 

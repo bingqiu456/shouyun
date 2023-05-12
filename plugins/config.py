@@ -6,12 +6,13 @@ image_check = {} # 图片验证码的缓存
 account = admin.account # 账号用户名
 password = admin.password # 账号密码
 
-if not account or not password: logger.error("当前未配置用户名和密码,请到config.py配置！！！") 
+if not account or not password: logger.error("当前未配置用户名和密码,请到admin.py配置！！！") 
 
 conn_cookie = sqlite3.connect("data/login.db") # 登录加载（cookie）
 conn_login_token = sqlite3.connect("data/config.db") # 加载登录令牌
 conn_group_tf = sqlite3.connect("data/group_tf.db") # 群开关
 conn_lp = sqlite3.connect("./data/lp.db") # 本地存储令牌
+conn_shenhe = sqlite3.connect("./data/shenhe.db") # 审核群
 
 d = conn_cookie.cursor().execute("SELECT * from `login`").fetchone()
 e = conn_login_token.cursor().execute("SELECT * from `Token`").fetchone()

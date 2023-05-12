@@ -17,12 +17,13 @@ async def _():
 
 @c.handle()
 async def _():
-    await c.finish(f"————功能操作————\n1.随机图片+名字+类型\n2.图片下载 uid/id xx\n—————————————\n{await yiyan.get_yiyan()}")
+    await c.finish(f"————功能操作————\n1.随机图片+名字+类型\n2.图片下载 uid/id xx\n3.上传图片 [名字] [类型] [留言] [查看权限] [图片]\n—————————————\n注意:上传图片要分清空格，管理员直接上传\n{await yiyan.get_yiyan()}")
 
 @d.handle()
 async def _():
-    await d.finish(f"————令牌功能————\n1.获取登录令牌\n2.修改登录令牌\n3.启用令牌\n4.停用令牌\n5.令牌列表\n6.申请令牌[key]\n7.启用key模式\n—————————————\n{await yiyan.get_yiyan()}")
+    await d.finish(f"————令牌功能————\n1.获取登录令牌\n2.修改登录令牌\n3.启用令牌\n4.停用令牌\n5.令牌列表\n6.申请令牌[key]\n7.启用key模式\n8.修改令牌权限 [令牌] [上传] [下载] [修改] [删除]\n—————————————\n修改令牌示例:\n修改令牌 xxx 0 1 1 1\n0是关 1是开\n{await yiyan.get_yiyan()}")
+    
 
 @e.handle()
 async def _():
-    await e.finish(f"————系统设置————\n1.群[开/关] [群号]\n2.修改心跳包[秒数]\n3.检查更新\n4.关于作者\n—————————————\n{await yiyan.get_yiyan()}")
+    await e.finish(f"————系统设置————\n1.群[开/关] [群号]\n2.修改心跳包[秒数]\n3.检查更新\n4.切换账号\n5.重启机器\n6.关于作者\n—————————————\n{await yiyan.get_yiyan()}")

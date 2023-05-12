@@ -10,6 +10,8 @@ logger.success("有bug请反馈 github.com/bingqiu456/shouyun")
 for i in a["files"]:
     b = httpx.get(f"https://{mirr}/shouyun/files/{i}").content
     if os.path.isfile(f"./plugins/{i}"):
+        if i == "admin.py":
+            continue
         with open(f"plugins/{i}","rb") as f:
             if f.read() == b:
                 logger.success("本文件无需更新")

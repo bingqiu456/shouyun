@@ -13,6 +13,23 @@ b = on_command("停用令牌",rule=group_1.group_check,permission=SUPERUSER)
 c = on_command("令牌列表",rule=group_1.group_check,permission=SUPERUSER)
 d = on_command("申请令牌",rule=group_1.group_check,permission=SUPERUSER)
 qy_key = on_fullmatch("启用key模式",rule=group_1.group_check,permission=SUPERUSER)
+e = on_command("修改令牌权限",rule=group_1.group_check,permission=SUPERUSER)
+
+@e.handle()
+async def _(a: Message = CommandArg()):
+    d = str(a).split()
+    if len(d) < 5: await e.finish()
+    for i in range(1,len(d)):
+        if not d[i].isdigit(): await e.finish()
+    t = httpx.post("https://cloud.foxtail.cn/api/account/token/power",data={
+        "upload":d[1],
+        "download":d[2],
+        "modify":d[3],
+        "delete":d[4],
+        "token":d[0]
+    },cookies=config.cookies_login).json()
+    if t["code"] != "03400": await e.finish(t["msg"])
+    await e.finish(f"令牌:{d[0]}修改成功")
 
 @qy_key.handle()
 async def _():
