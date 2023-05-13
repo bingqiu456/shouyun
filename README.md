@@ -15,13 +15,14 @@
 
 <center><h2>🍁Nonebot-Bot-shouyun🍁<h2><center>
 
-<center>⭐轻量 高级 高效率⭐<center>
+<center>⭐轻量 高级 高效率⭐<center><br></br>
 
-<center>⭐支持各种各样的功能⭐<center>
+<center>⭐支持各种各样的功能⭐<center><br></br>
 
-<center>⭐目前版本v1.0正式版⭐<center>
+<center>⭐目前版本v1.0正式版⭐<center><br></br>
 
-<center>⭐有问题请发iss⭐<center>
+<center>⭐有问题请发iss⭐<center><br></br>
+
 
 ## 入门使用
 
@@ -88,6 +89,8 @@ nb run
 
 ## 最后
 
+目前不支持代理使用 如果电脑挂着全局vpn请屏蔽掉狐尾  
+  
 QQ:35***19417
 
 github:bingqiu456
