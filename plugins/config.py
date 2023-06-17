@@ -2,9 +2,10 @@ import sqlite3
 from nonebot.log import logger
 from . import admin
 
-image_check = {} # 图片验证码的缓存
+time_login_bool = False
 account = admin.account # 账号用户名
 password = admin.password # 账号密码
+cookies_login = {} # 登录令牌
 
 if not account or not password: logger.error("当前未配置用户名和密码,请到admin.py配置！！！") 
 
@@ -16,13 +17,14 @@ conn_shenhe = sqlite3.connect("./data/shenhe.db") # 审核群
 
 d = conn_cookie.cursor().execute("SELECT * from `login`").fetchone()
 e = conn_login_token.cursor().execute("SELECT * from `Token`").fetchone()
-
-cookies_login = {"PHPSESSID":d[0],"Token":d[1],"User":d[2]} # cookie
-token_p = e[0] # 登录令牌
+if d:
+    cookies_login = {"PHPSESSID":d[0],"Token":d[1],"User":d[2]} # cookie
+    token_p = e[0] # 登录令牌
 time_login = admin.time_login # 心跳包 单位秒 （多少秒后自动登录）
 ans = 1 # 心跳次数
 
 group_tf = [] # 群开关
 o = conn_group_tf.cursor().execute(f"SELECT * from `group`").fetchall()
-for i in o:
-    group_tf.append(i[0])
+if o: 
+    for i in o:
+        group_tf.append(i[0])

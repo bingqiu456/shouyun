@@ -4,7 +4,7 @@ from nonebot.log import logger
 from nonebot.params import CommandArg
 from . import config
 
-a = on_command("群开")
+a = on_command("群开机")
 @a.handle()
 async def _(event:GroupMessageEvent,v: Message = CommandArg()):
     try: group = int(str(v).strip())
@@ -14,7 +14,7 @@ async def _(event:GroupMessageEvent,v: Message = CommandArg()):
     else:
         await a.finish(f"本群已经开启了{group}")
 
-b = on_command("群关")
+b = on_command("群关机")
 @b.handle()
 async def _(event:GroupMessageEvent,v: Message = CommandArg()):
     try: group = int(str(v).strip())

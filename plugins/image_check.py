@@ -14,4 +14,6 @@ async def _():
 async def get_image():
     # 获取图片的验证码
     a = httpx.get("https://cloud.foxtail.cn/api/check",cookies=config.cookies_login)
+    if not config.cookies_login:
+        config.cookies_login["PHPSESSID"] = a.cookies["PHPSESSID"]
     return a.content

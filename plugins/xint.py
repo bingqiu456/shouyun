@@ -18,9 +18,12 @@ async def eveny_day():
         config.ans+=1
     else:
         logger.error("更新登录状态失败....")
-
-scheduler.add_job(eveny_day, "interval", seconds = config.time_login,id = "shouyun")
-
+if config.time_login_bool:
+    logger.success("心跳包已开启")
+    scheduler.add_job(eveny_day, "interval", seconds = config.time_login,id = "shouyun")
+else:
+    logger.success("心跳包未开启")
+    
 a = on_command("修改心跳包",rule=group_1.group_check,permission=SUPERUSER)
 @a.handle()
 async def _(v: Message = CommandArg()):

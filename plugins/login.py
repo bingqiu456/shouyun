@@ -37,7 +37,7 @@ async def login(k,b):
         "model":k,
         "proving":b,
         "token":b
-    },cookies=config.image_check)
+    },cookies=config.cookies_login)
     k = b.cookies
     d = b.json()
     if d["code"] == "10000":
